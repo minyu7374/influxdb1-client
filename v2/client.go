@@ -132,7 +132,7 @@ func (c *client) Ping(timeout time.Duration) (time.Duration, string, error) {
 	u := c.url
 	u.Path = path.Join(u.Path, "ping")
 
-	req, err := http.NewRequest("POST", u.String(), nil)
+	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return 0, "", err
 	}
@@ -628,7 +628,7 @@ func (c *client) createDefaultRequest(q Query) (*http.Request, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("POST", u.String(), nil)
+	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return nil, err
 	}
